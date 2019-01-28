@@ -1,29 +1,29 @@
 {
-  "name": "gift_savvy_server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha --exit",
-    "start": "node start.js"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "chai": "^4.2.0",
-    "chai-http": "^4.2.1",
-    "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "joi": "^14.3.1",
-    "jsonwebtoken": "^8.4.0",
-    "mocha": "^5.2.0",
-    "mongoose": "^5.4.4",
-    "morgan": "^1.9.1",
-    "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
-    "passport-local": "^1.0.0",
-    "save": "^2.3.3"
-  }
+	"name": "gift_savvy_server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "mocha --exit",
+		"start": "nodemon start.js"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.18.3",
+		"chai": "^4.2.0",
+		"chai-http": "^4.2.1",
+		"cors": "^2.8.5",
+		"express": "^4.16.4",
+		"joi": "^14.3.1",
+		"jsonwebtoken": "^8.4.0",
+		"mocha": "^5.2.0",
+		"mongoose": "^5.4.4",
+		"morgan": "^1.9.1",
+		"passport": "^0.4.0",
+		"passport-jwt": "^4.0.0",
+		"passport-local": "^1.0.0",
+		"save": "^2.3.3"
+	}
 }
