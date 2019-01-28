@@ -23,7 +23,7 @@ passport.use(jwtStrategy);
 
 app.use(
 	cors({
-		origin: '*'
+		origin: CLIENT_ORIGIN
 	})
 );
 app.use(morgan('combined'));
