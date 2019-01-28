@@ -34,6 +34,7 @@ app.use(express.static('./public'));
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/recipients', recipientRouter);
+
 app.use('*', (req, res) => {
 	res.status(HTTP_STATUS_CODES.NOT_FOUND).json({
 		error: 'Not Found'
