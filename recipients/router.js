@@ -22,9 +22,7 @@ recipientRouter.get('/', jwtPassportMiddleware, (request, response) => {
 			);
 		})
 		.catch(err => {
-			return response
-				.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR)
-				.json(err)
+			return response.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR).json(err);
 		});
 });
 
@@ -36,13 +34,16 @@ recipientRouter.get(
 			_id: request.params.recipientId
 		})
 			.then(recipient => {
-				return response.status(HTTP_STATUS_CODES.OK).json(recipient.serialize())
+				return response
+					.status(HTTP_STATUS_CODES.OK)
+					.json(recipient.serialize());
 			})
 			.catch(err => {
 				return response
 					.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR)
-					.json(err)
-			});	}
+					.json(err);
+			});
+	}
 );
 
 recipientRouter.post('/', jwtPassportMiddleware, (request, response) => {
@@ -56,25 +57,32 @@ recipientRouter.post('/', jwtPassportMiddleware, (request, response) => {
 		budget: request.body.budget,
 		giftStatus: request.body.status
 	};
-	console.log(recipient, "post");
-	
+	console.log(recipient, 'post');
+
 	const validation = Joi.validate(recipient, RecipientJoiSchema);
 	if (validation.error) {
 		return response.status(HTTP_STATUS_CODES.BAD_REQUEST).json({
+			code: 422,
+			reason: 'ValidationError',
 			error: validation.error
 		});
 	}
 	Recipient.create(recipient).then(recipient => {
-		response.status(HTTP_STATUS_CODES.CREATED).json(recipient.serialize())
+		response
+			.status(HTTP_STATUS_CODES.CREATED)
+			.json(recipient.serialize())
 			.catch(err => {
 				return response
 					.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR)
-					.json(error)
+					.json(error);
 			});
 	});
 });
 
-recipientRouter.put('/:recipientId',jwtPassportMiddleware,(request, response) => {
+recipientRouter.put(
+	'/:recipientId',
+	jwtPassportMiddleware,
+	(request, response) => {
 		console.log('IN put');
 
 		const updatedRecipient = {
@@ -86,7 +94,7 @@ recipientRouter.put('/:recipientId',jwtPassportMiddleware,(request, response) =>
 			budget: request.body.budget,
 			giftStatus: request.body.giftStatus
 		};
-		console.log(updatedRecipient,"edit")
+		console.log(updatedRecipient, 'edit');
 		const validation = Joi.validate(updatedRecipient, RecipientJoiSchema);
 		if (validation.error) {
 			return response
