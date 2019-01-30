@@ -55,7 +55,7 @@ recipientRouter.post('/', jwtPassportMiddleware, (request, response) => {
 		giftDate: request.body.giftDate,
 		gift: request.body.gift,
 		budget: request.body.budget,
-		giftStatus: request.body.status
+		giftStatus: request.body.giftStatus
 	};
 	console.log(recipient, 'post');
 
