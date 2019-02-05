@@ -14,12 +14,11 @@ module.exports = {
 		'mongodb://user:user12@ds157544.mlab.com:57544/gift_savvy',
 	TEST_MONGO_URL:
 		process.env.TEST_MONGO_URL ||
-		'mongodb://test1:test1234@ds157544.mlab.com:57544/gift_savvy',
+		'mongodb://test:test12@ds113746.mlab.com:13746/gift_savvy_test',
 	GIFT_SEARCH_API_URL:
 		process.env.GIFT_SEARCH_API_URL ||
-		'https://rest.viglink.com/api/product/search',
+		'/https://rest.viglink.com/api/product/search',
 	JWT_SECRET: process.env.JWT_SECRET || 'default',
 	JWT_EXPIRY: process.env.JWT_EXPIRY || '7d',
-	CLIENT_ORIGIN:
-		process.env.CLIENT_ORIGIN || 'https://gift-savvy.herokuapp.com'
+	CLIENT_ORIGIN: process.env.CLIENT_ORIGIN || 'http://localhost:3000'
 };

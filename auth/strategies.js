@@ -35,7 +35,6 @@ const localStrategy = new LocalStrategy((username, password, callback) => {
     }).then(isValid => {
         if (!isValid) {
             // Step 3A: If password doesn't match the stored password hash, reject promise with an error.
-            console.log("user Invalid");
 
             return Promise.reject({
                 reason: 'LoginError',
@@ -44,7 +43,6 @@ const localStrategy = new LocalStrategy((username, password, callback) => {
 
         }
         // Step 3B: If authentication is succesfull, execute the callback callback correctly.
-        console.log("user valid");
         return callback(null, user);
     }).catch(err => {
         // Step 4: If an error ocurred at any stage during the process, execute the callback callback correctly.
@@ -63,7 +61,6 @@ const jwtStrategy = new JwtStrategy({
         algorithms: ['HS256']
     },
     (token, done) => {
-        console.log(token);
         done(null, token.user);
     }
 );

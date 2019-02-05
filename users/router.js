@@ -24,13 +24,11 @@ userRouter.post('/', (request, response) => {
 						.json(createdUser.serialize());
 				})
 				.catch(error => {
-					console.log(error);
 					if (error.message.includes('user validation failed')) {
 						return response
 							.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR)
 							.json(error.message.substring(error.message.indexOf(': P') + 1));
 					} else if (error.code === 11000) {
-						console.log(error);
 						if (error.errmsg.includes('$username_1 dup')) {
 							return response
 								.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR)

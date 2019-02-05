@@ -55,7 +55,6 @@ describe('Integration tests for: /api/recipients', function() {
 				const seedData = [];
 				for (let i = 1; i <= 10; i++) {
 					const newRecipienData = createFakerRecipient();
-          console.log(newRecipienData);
 					newRecipienData.user = createdUser.id;
 					seedData.push(newRecipienData);
 				}
@@ -72,7 +71,6 @@ describe('Integration tests for: /api/recipients', function() {
 			mongoose.connection
 				.dropDatabase()
 				.then(result => {
-					console.log(`The result is ${result}`);
 					resolve();
 				})
 				.catch(err => {
@@ -88,7 +86,6 @@ describe('Integration tests for: /api/recipients', function() {
 
 	it('Should create a new recipient', function() {
 		const newRecipienDataData = createFakerRecipient();
-		console.log('recipient', newRecipienDataData);
 
 		return chai
 			.request(app)
@@ -96,7 +93,6 @@ describe('Integration tests for: /api/recipients', function() {
 			.set('Authorization', `Bearer ${jwtToken}`)
 			.send(newRecipienDataData)
 			.then(res => {
-				console.log('new', res);
 				expect(res).to.have.status(HTTP_STATUS_CODES.CREATED);
 				expect(res).to.be.json;
 			});

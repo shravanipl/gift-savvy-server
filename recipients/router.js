@@ -9,7 +9,6 @@ const { Recipient, RecipientJoiSchema } = require('./models.js');
 const recipientRouter = express.Router();
 
 recipientRouter.get('/', jwtPassportMiddleware, (request, response) => {
-	console.log('IN get');
 	Recipient.find({
 		user: request.user.id
 	})
@@ -57,7 +56,6 @@ recipientRouter.post('/', jwtPassportMiddleware, (request, response) => {
 		budget: request.body.budget,
 		giftStatus: request.body.giftStatus
 	};
-	console.log(recipient, 'post');
 
 	const validation = Joi.validate(recipient, RecipientJoiSchema);
 	if (validation.error) {
@@ -83,7 +81,6 @@ recipientRouter.put(
 	'/:recipientId',
 	jwtPassportMiddleware,
 	(request, response) => {
-		console.log('IN put');
 
 		const updatedRecipient = {
 			name: request.body.name,
@@ -94,7 +91,6 @@ recipientRouter.put(
 			budget: request.body.budget,
 			giftStatus: request.body.giftStatus
 		};
-		console.log(updatedRecipient, 'edit');
 		const validation = Joi.validate(updatedRecipient, RecipientJoiSchema);
 		if (validation.error) {
 			return response
@@ -119,7 +115,6 @@ recipientRouter.delete(
 	'/:recipientid',
 	jwtPassportMiddleware,
 	(request, response) => {
-		console.log('IN delete');
 
 		Recipient.findByIdAndRemove(request.params.recipientid)
 			.then(() => {

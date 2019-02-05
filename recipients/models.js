@@ -21,16 +21,13 @@ const RecipientSchema = new mongoose.Schema({
 		required: true
 	},
 	giftDate: {
-		type: String,
-		required: true
+		type: String
 	},
 	gift: {
-		type: String,
-		required: true
+		type: String
 	},
 	budget: {
-		type: Number,
-		required: true
+		type: Number
 	},
 	giftStatus: {
 		type: String,
@@ -75,10 +72,10 @@ const RecipientJoiSchema = Joi.object().keys({
 		.required(),
 	gift: Joi.string()
 		.min(1)
-		.required(),
+		.optional(),
 	budget: Joi.number()
 		.min(1)
-		.required(),
+		.optional(),
 	giftStatus: Joi.string()
 		.min(1)
 		.required()
