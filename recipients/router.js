@@ -69,11 +69,12 @@ recipientRouter.post('/', jwtPassportMiddleware, (request, response) => {
 		response
 			.status(HTTP_STATUS_CODES.CREATED)
 			.json(recipient.serialize())
-			.catch(err => {
+	})
+		.catch(err => {
 				return response
 					.status(HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR)
 					.json(error);
-			});
+		
 	});
 });
 
